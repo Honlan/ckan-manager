@@ -1,0 +1,79 @@
+html,body {
+	width: 100%;
+	height: 100%;
+	min-width: 1024px;
+	min-height: 720px;
+	margin: 0;
+	padding: 0;
+	font-family: Microsoft Yahei;
+}
+
+#header{
+	text-align: center;
+	background-color: rgba(23, 52, 165, 0.8);
+	color: white;
+}
+#header h1 {
+	margin-top: 0;
+	padding-top: 20px;
+}
+#header h3 {
+	padding-bottom: 20px;
+	margin-bottom: 0;
+}
+#header h3 span {
+	color: #aaa;
+}
+
+#content {
+}
+
+#info {
+	background-color: rgba(124, 219, 132, 0.8);
+	padding: 20px 30%;
+}
+#info .input-group-addon {
+	background-color: rgba(244, 159, 106, 0.8);
+	color: white;
+}
+
+#main {
+	margin: 40px 20%;
+	padding: 10px;
+}
+#main #api {
+	width: 50%;
+	margin-left: 25%;
+	margin-top: 10px;
+	margin-bottom: 25px;
+	height: 34px;
+}
+#main .para {
+	display: none;
+	margin-top: 25px;
+	margin-bottom: 0;
+	padding: 20px;
+}
+#main .para select{
+	margin: 0;
+	width: 100%;
+	height: 34px;
+}
+#main #para_datastore_create h5 {
+	margin-top: 0;
+	width: 50px;
+	cursor: pointer;
+	margin-bottom: 0;
+}
+#main #para_datastore_create .row {
+	margin-top: 15px;
+}
+#main #run {
+	width: 20%;
+	margin: 25px 40% 0 40%;
+}
+
+#footer {
+	text-align: center;
+	line-height: 1.5;
+}

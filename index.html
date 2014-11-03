@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CkanAPI在线调用平台</title>
+    <meta name="description" content="CkanAPI在线调用平台">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="public/js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!--script src="public/js/jquery.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css"-->
+    <link rel="stylesheet" type="text/css" href="public/css/index.css">
+</head>
+
+<body>
+    <div id="header">
+        <h1>CkanManager</h1>
+        <h3>在线调用
+            <span>CkanAPIs</span>
+        </h3>
+    </div>
+
+    <div id="content">
+        <div id="info">
+            <div class="input-group">
+                <span class="input-group-addon">Your Ckan Site</span>
+                <input type="text" class="form-control" placeholder="data.sjtu.edu.cn">
+            </div>
+        </div>
+        <div id="main" class="panel panel-default">
+            <div class="panel-body">
+                <div>
+                    <select class="btn btn-default" id="api">
+                        <option value="">Select An API</option>
+                        <option value="#para_datastore_create">datastore_create</option>
+                        <option value="#para_datastore_upsert">datastore_upsert</option>
+                        <option value="#para_datastore_delete">datastore_delete</option>
+                        <option value="#para_current_package_list_with_resources">current_package_list_with_resources</option>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <input id="rid" type="text" class="form-control" placeholder="the id of your resource">
+                    </div>
+                    <div class="col-md-6">
+                        <input id="api_key" type="text" class="form-control" placeholder="your api key">
+                    </div>
+                </div>
+
+                <div class="panel panel-default para" id='para_datastore_create'>
+                    <h5 data-toggle="tooltip" data-placement="top" title="点我增加一项">fields</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="field name">
+                        </div>
+                        <div class="col-md-6">
+                            <select class="btn btn-default">
+                            	<option value="">field type</option>
+                                <option value="text">text</option>
+                                <option value="float">float</option>
+                                <option value="json">json</option>
+                                <option value="timestamp">timestamp</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default para" id='para_datastore_upsert'>
+                    2
+                </div>
+
+                <div class="panel panel-default para" id='para_datastore_delete'>
+                    3
+                </div>
+
+                <div class="panel panel-default para" id='para_current_package_list_with_resources'>
+                    4
+                </div>
+
+                <button id='run' class='btn btn-primary'>Run!</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer" class='well'>
+        <p>
+            <span>在线CkanAPI调用工具</span>
+            <br>
+            <span>Copyright © 2014-2015 SJTU hlzhang</span>
+        </p>
+    </div>
+</body>
+
+</html>
