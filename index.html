@@ -30,7 +30,7 @@
         <div id="info">
             <div class="input-group">
                 <span class="input-group-addon">Your Ckan Site</span>
-                <input type="text" class="form-control" placeholder="data.sjtu.edu.cn">
+                <input type="text" class="form-control" placeholder="data.sjtu.edu.cn" value="data.sjtu.edu.cn">
             </div>
         </div>
         <div id="main" class="panel panel-default">
@@ -39,9 +39,10 @@
                     <select class="btn btn-default" id="api">
                         <option value="">Select An API</option>
                         <option value="#para_datastore_create">datastore_create</option>
-                        <option value="#para_datastore_upsert">datastore_upsert</option>
+                        <option value="#para_url_update">url_update</option>
+                        <!-- <option value="#para_datastore_upsert">datastore_upsert</option> -->
                         <option value="#para_datastore_delete">datastore_delete</option>
-                        <option value="#para_current_package_list_with_resources">current_package_list_with_resources</option>
+                        <!-- <option value="#para_current_package_list_with_resources">current_package_list_with_resources</option> -->
                     </select>
                 </div>
 
@@ -71,18 +72,22 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="panel panel-default para" id='para_datastore_upsert'>
-                    2
+				
+				<div class="panel panel-default para" id='para_url_update'>
+                    <h5>更新资源链接为可下载的数据仓库链接，不需要更多操作，Just Run！</h5>
                 </div>
+
+                <!-- <div class="panel panel-default para" id='para_datastore_upsert'>
+                    2
+                </div> -->
 
                 <div class="panel panel-default para" id='para_datastore_delete'>
                     3
                 </div>
 
-                <div class="panel panel-default para" id='para_current_package_list_with_resources'>
+                <!-- <div class="panel panel-default para" id='para_current_package_list_with_resources'>
                     4
-                </div>
+                </div> -->
 
                 <button id='run' class='btn btn-primary'>Run!</button>
             </div>

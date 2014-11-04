@@ -10,7 +10,7 @@ html,body {
 
 #header{
 	text-align: center;
-	background-color: rgba(23, 52, 165, 0.8);
+	background-color: rgba(46, 77, 200, 0.8);
 	color: white;
 }
 #header h1 {
@@ -22,7 +22,7 @@ html,body {
 	margin-bottom: 0;
 }
 #header h3 span {
-	color: #aaa;
+	color: #333;
 }
 
 #content {

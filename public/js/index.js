@@ -2,7 +2,8 @@ $(function() {
     var api = '',
         siteUrl = '',
         api_key = '',
-        resource_id = '';
+        rid = '',
+        resource_dict = '';
 
     $("[data-toggle='tooltip']").tooltip();
 
@@ -31,27 +32,75 @@ $(function() {
                 } else if (!api_key) {
                     alert('Api Key Not Provided!');
                 } else {
-                    var fields = "[";
+                    var empty = false;
                     $('#para_datastore_create .row').each(function() {
-                        fields += "{'id': '" + $(this).find('input').val();
-                        fields += "', 'type':'" + $(this).find('select').val() + "'},";
+                        if ($(this).find('input').val() == '' || $(this).find('select').val() == '') {
+                            empty = true;
+                            return false;
+                        }
                     });
-                    fields += "]";
-                    alert('fields');
-                    // var data = {
-                    //     resource_id: "08d4e29a-3524-46ed-8261-a57f6ca1ff07",
-                    //     force: true,
-                    //     fields: "",
-                    //     Authorization: "74de0aaf-5cf6-437a-bc33-f35fd6a8bd39"
-                    // };
-                    // $.ajax({
-                    //     url: 'http://data.sjtu.edu.cn/api/3/action/datastore_create',
-                    //     data: data,
-                    //     dataType: 'jsonp',
-                    //     success: function(data) {
-                    //         alert(data.success);
-                    //     }
-                    // });
+                    if (empty) {
+                        alert('Fields Not Complete!')
+                    } else {
+                        var fields = '[';
+                        $('#para_datastore_create .row').each(function() {
+                            fields += '{"id": "' + $(this).find('input').val();
+                            fields += '", "type":"' + $(this).find('select').val() + '"},';
+                        });
+                        fields = fields.substring(0, fields.length - 1);
+                        fields += ']';
+                        resource_dict = '{"fields": ' + fields + ', "force": true, "resource_id": "' + rid + '"}';
+                        $.ajax({
+                            url: 'ckan.php',
+                            type: 'POST',
+                            data: {
+                                siteUrl: siteUrl,
+                                api_key: api_key,
+                                resource_dict: resource_dict,
+                                api: 'datastore_create'
+                            },
+                            dataType: 'json',
+                            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                                alert('数据仓库新建失败！');
+                                //alert(XMLHttpRequest.status + ' ' + XMLHttpRequest.readyState + ' ' + textStatus);
+                            },
+                            success: function(data) {
+                                alert('数据仓库新建成功！');
+                            }
+                        });
+                    }
+                }
+                break;
+            case '#para_url_update':
+                siteUrl = $('#info input').val();
+                api_key = $('#api_key').val();
+                rid = $('#rid').val();
+                if (!siteUrl) {
+                    alert('Ckan Site Not Provided!');
+                } else if (!rid) {
+                    alert('Resource Id Not Provided!');
+                } else if (!api_key) {
+                    alert('Api Key Not Provided!');
+                } else {
+                    resource_dict = '{"id": "' + rid + '", "revision_id": "1.1", "url": "http://' + siteUrl + '/datastore/dump/' + rid + '"}';
+                    $.ajax({
+                        url: 'ckan.php',
+                        type: 'POST',
+                        data: {
+                            siteUrl: siteUrl,
+                            api_key: api_key,
+                            resource_dict: resource_dict,
+                            api: 'resource_update'
+                        },
+                        dataType: 'json',
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            alert('资源url更新失败！');
+                            //alert(XMLHttpRequest.status + ' ' + XMLHttpRequest.readyState + ' ' + textStatus);
+                        },
+                        success: function(data) {
+                            alert('资源url更新成功！');  
+                        }
+                    });
                 }
                 break;
             default:
