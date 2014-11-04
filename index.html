@@ -41,7 +41,7 @@
                         <option value="#para_datastore_create">datastore_create</option>
                         <option value="#para_url_update">url_update</option>
                         <!-- <option value="#para_datastore_upsert">datastore_upsert</option> -->
-                        <!-- <option value="#para_datastore_delete">datastore_delete</option> -->
+                        <option value="#para_datastore_delete">datastore_delete</option> -->
                         <!-- <option value="#para_current_package_list_with_resources">current_package_list_with_resources</option> -->
                     </select>
                 </div>
@@ -81,9 +81,14 @@
                     2
                 </div> -->
 
-                <!-- <div class="panel panel-default para" id='para_datastore_delete'>
-                    3
-                </div> -->
+                <div class="panel panel-default para" id='para_datastore_delete'>
+                    <h5>filters</h5>
+                     <div class="row">
+                        <div class="col-md-12">
+                            <input id='filters' type="text" class="form-control" placeholder='eg{"name":"zhl"}，如果不提供filters，将删除整个datastore！后果严重请谨慎！'>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- <div class="panel panel-default para" id='para_current_package_list_with_resources'>
                     4

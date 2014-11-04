@@ -72,6 +72,39 @@ $(function() {
                 }
                 break;
             case '#para_url_update':
+                alert('此功能暂不完善，慎用！');
+                // siteUrl = $('#info input').val();
+                // api_key = $('#api_key').val();
+                // rid = $('#rid').val();
+                // if (!siteUrl) {
+                //     alert('Ckan Site Not Provided!');
+                // } else if (!rid) {
+                //     alert('Resource Id Not Provided!');
+                // } else if (!api_key) {
+                //     alert('Api Key Not Provided!');
+                // } else {
+                //     resource_dict = '{"id": "' + rid + '", "revision_id": "1.1", "url": "http://' + siteUrl + '/datastore/dump/' + rid + '"}';
+                //     $.ajax({
+                //         url: 'ckan.php',
+                //         type: 'POST',
+                //         data: {
+                //             siteUrl: siteUrl,
+                //             api_key: api_key,
+                //             resource_dict: resource_dict,
+                //             api: 'resource_update'
+                //         },
+                //         dataType: 'json',
+                //         error: function(XMLHttpRequest, textStatus, errorThrown) {
+                //             alert('资源url更新失败！');
+                //             //alert(XMLHttpRequest.status + ' ' + XMLHttpRequest.readyState + ' ' + textStatus);
+                //         },
+                //         success: function(data) {
+                //             alert('资源url更新成功！');
+                //         }
+                //     });
+                // }
+                break;
+            case '#para_datastore_delete':
                 siteUrl = $('#info input').val();
                 api_key = $('#api_key').val();
                 rid = $('#rid').val();
@@ -82,7 +115,7 @@ $(function() {
                 } else if (!api_key) {
                     alert('Api Key Not Provided!');
                 } else {
-                    resource_dict = '{"id": "' + rid + '", "revision_id": "1.1", "url": "http://' + siteUrl + '/datastore/dump/' + rid + '"}';
+                    resource_dict = '{"resource_id": "' + rid + '", "force": true, "filters": ' + $('#filters').val() + '}';
                     $.ajax({
                         url: 'ckan.php',
                         type: 'POST',
@@ -90,15 +123,15 @@ $(function() {
                             siteUrl: siteUrl,
                             api_key: api_key,
                             resource_dict: resource_dict,
-                            api: 'resource_update'
+                            api: 'datastore_delete'
                         },
                         dataType: 'json',
                         error: function(XMLHttpRequest, textStatus, errorThrown) {
-                            alert('资源url更新失败！');
+                            alert('数据仓库删除失败！');
                             //alert(XMLHttpRequest.status + ' ' + XMLHttpRequest.readyState + ' ' + textStatus);
                         },
                         success: function(data) {
-                            alert('资源url更新成功！');  
+                            alert('数据仓库删除成功！');
                         }
                     });
                 }
