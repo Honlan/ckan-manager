@@ -59,7 +59,7 @@ html,body {
 	width: 100%;
 	height: 34px;
 }
-#main #para_datastore_create h5 {
+#main #para_datastore_create #addFieldButton, #addFieldButtonUpdate {
 	margin-top: 0;
 	width: 50px;
 	cursor: pointer;

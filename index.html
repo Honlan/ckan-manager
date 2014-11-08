@@ -41,8 +41,9 @@
                         <option value="#para_datastore_create">datastore_create</option>
                         <option value="#para_url_update">url_update</option>
                         <!-- <option value="#para_datastore_upsert">datastore_upsert</option> -->
-                        <option value="#para_datastore_delete">datastore_delete</option> -->
+                        <option value="#para_datastore_delete">datastore_delete</option>
                         <!-- <option value="#para_current_package_list_with_resources">current_package_list_with_resources</option> -->
+                        <option value="#para_datastore_update">datastore_update</option>-->
                     </select>
                 </div>
 
@@ -56,24 +57,32 @@
                 </div>
 
                 <div class="panel panel-default para" id='para_datastore_create'>
-                    <h5 data-toggle="tooltip" data-placement="top" title="点我增加一项">fields</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="field name">
-                        </div>
-                        <div class="col-md-6">
-                            <select class="btn btn-default">
-                            	<option value="">field type</option>
-                                <option value="text">text</option>
-                                <option value="float">float</option>
-                                <option value="json">json</option>
-                                <option value="timestamp">timestamp</option>
-                            </select>
+
+                    <h5 id="addFieldButton" data-toggle="tooltip" data-placement="top" title="点我增加一项">fields</h5>
+                    <div id="addField">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="field name">
+                            </div>
+                            <div class="col-md-6">
+                                <select class="btn btn-default">
+                                    <option value="">field type</option>
+                                    <option value="text">text</option>
+                                    <option value="float">float</option>
+                                    <option value="json">json</option>
+                                    <option value="timestamp">timestamp</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
+
+                    <h5 style="margin-top:15px;margin-bottom:15px;">primary_key</h5>
+                    <div style="width:100%;" id="primary_key">
+                        <input type="text" class="form-control" placeholder='可选，如果希望datastore数据可改请填写，选择以上某一项field name即可'>
+                    </div>
                 </div>
-				
-				<div class="panel panel-default para" id='para_url_update'>
+
+                <div class="panel panel-default para" id='para_url_update'>
                     <h5>更新资源链接为可下载的数据仓库链接，不需要更多操作，Just Run！</h5>
                 </div>
 
@@ -83,9 +92,31 @@
 
                 <div class="panel panel-default para" id='para_datastore_delete'>
                     <h5>filters</h5>
-                     <div class="row">
+                    <div class="row">
                         <div class="col-md-12">
                             <input id='filters' type="text" class="form-control" placeholder='eg{"name":"zhl"}，如果不提供filters，将删除整个datastore！后果严重请谨慎！'>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default para" id='para_datastore_update'>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input id="pkn" type="text" class="form-control" placeholder="主键名">
+                        </div>
+                        <div class="col-md-6">
+                            <input id="pkv" type="text" class="form-control" placeholder="主键值">
+                        </div>
+                    </div>
+                    <h5 style="margin-top:15px;" id="addFieldButtonUpdate" data-toggle="tooltip" data-placement="top" title="点我增加一项">fields</h5>
+                    <div id="addFieldUpdate">
+                        <div class="row" style="margin-top:15px;">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control updateFieldName" placeholder="field name">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control updateFieldValue" placeholder="Update to">
+                            </div>
                         </div>
                     </div>
                 </div>
