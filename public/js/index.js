@@ -179,7 +179,7 @@ $(function() {
                         data = data.substring(0, data.length - 1);
                         data += '}]';
 
-                        resource_dict = '{"records": ' + data + ', "force": true, "resource_id": "' + rid + '", "method": "update"}';
+                        resource_dict = '{"records": ' + data + ', "force": true, "resource_id": "' + rid + '", "method": "upsert"}';
                         $.ajax({
                             url: 'ckan.php',
                             type: 'POST',
