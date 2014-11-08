@@ -124,7 +124,12 @@ $(function() {
                 } else if (!api_key) {
                     alert('Api Key Not Provided!');
                 } else {
-                    resource_dict = '{"resource_id": "' + rid + '", "force": true, "filters": ' + $('#filters').val() + '}';
+                    var filters = $('#filters').val();
+                    if(filters!=""){
+                        resource_dict = '{"resource_id": "' + rid + '", "force": true, "filters": ' + filters + '}';
+                    }else {
+                        resource_dict = '{"resource_id": "' + rid + '", "force": true}';
+                    }
                     $.ajax({
                         url: 'ckan.php',
                         type: 'POST',
